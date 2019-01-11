@@ -10,6 +10,23 @@ type Props = {
   children: React.ReactNode
 }
 
+interface Node {
+  id: string
+  title: string
+}
+
+interface Page {
+  node: Node
+}
+
+const renderPages = (pages: Page[]) => {
+  const components = pages.map((page: Page) => (
+    <div>{page.node.title}</div>
+  ))
+
+  return components
+}
+
 const Layout = ({ children }: Props) => (
   <StaticQuery
     query={graphql`
@@ -17,6 +34,14 @@ const Layout = ({ children }: Props) => (
         site {
           siteMetadata {
             title
+          }
+        }
+        allContentfulBlogPost {
+          edges {
+            node {
+              id
+              title
+            }
           }
         }
       }
@@ -32,7 +57,7 @@ const Layout = ({ children }: Props) => (
         >
           <html lang="en" />
         </Helmet>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header siteTitle={`${data.site.siteMetadata.title}`} />
         <div
           style={{
             margin: '0 auto',
@@ -41,7 +66,7 @@ const Layout = ({ children }: Props) => (
             paddingTop: 0,
           }}
         >
-          {children}
+          {renderPages(data.allContentfulBlogPost.edges)}
         </div>
       </>
     )}
