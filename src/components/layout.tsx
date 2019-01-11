@@ -13,6 +13,7 @@ type Props = {
 interface Node {
   id: string
   title: string
+  slug: string
 }
 
 interface Page {
@@ -21,7 +22,7 @@ interface Page {
 
 const renderPages = (pages: Page[]) => {
   const components = pages.map((page: Page) => (
-    <div>{page.node.title}</div>
+    <div>{page.node.slug}</div>
   ))
 
   return components
@@ -41,6 +42,7 @@ const Layout = ({ children }: Props) => (
             node {
               id
               title
+              slug
             }
           }
         }
