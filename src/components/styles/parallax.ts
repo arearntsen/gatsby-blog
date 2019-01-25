@@ -6,7 +6,6 @@ export const cssParallaxContainer = css`
   overflow-x: hidden;
   overflow-y: auto;
   -ms-perspective-origin-x: 100%;
-  -webkit-overflow-scrolling: touch;
 `
 export const cssPrallaxLayer = css`
   position: absolute;
