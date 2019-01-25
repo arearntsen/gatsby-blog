@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
-import Landing from '../components/landing'
-import Layout from '../components/layout';
+import Parallax from '../components/parallax'
 
 class IndexPage extends Component {
   render() {
     return (
-      <Layout>
-        <Landing/>
-      </Layout>
+      <Parallax />
     )
   }
 }

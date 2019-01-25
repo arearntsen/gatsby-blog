@@ -1,17 +1,15 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-import cssGlobal from '../styles/global';
-import { Global } from '@emotion/core';
 
 type Props = {
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
-const Layout = ({ children }: Props) => (
+const HelmetComp = ({ children }: Props) => (
   <StaticQuery
     query={graphql`
-      query SiteTitleQuery {
+      query HelmetQuery {
         site {
           siteMetadata {
             title
@@ -20,8 +18,6 @@ const Layout = ({ children }: Props) => (
       }
     `}
     render={data => (
-      <>
-        <Global styles={cssGlobal}/>
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
@@ -31,12 +27,8 @@ const Layout = ({ children }: Props) => (
         >
           <html lang="en" />
         </Helmet>
-        <div>
-          {children}
-        </div>
-      </>
     )}
   />
 )
 
-export default Layout
+export default HelmetComp
