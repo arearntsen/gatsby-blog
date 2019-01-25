@@ -6,28 +6,28 @@ class Parallax extends Component {
   render() {
     return (
       <e.div css={parallax.cssParallaxContainer}>
-        <e.div css={parallax.cssParallaxGroup}>
+        <e.div bc="green" css={parallax.cssParallaxGroup}>
           <e.div css={parallax.cssParallaxLayerBase}>
-            Hello
+            Base1
           </e.div>
           <e.div css={parallax.cssParallaxLayerBack}>
-            Hello
+            Slow1
           </e.div>
         </e.div>
-        <e.div css={parallax.cssParallaxGroup}>
+        <e.div bc="blue" css={parallax.cssParallaxGroup}>
           <e.div css={parallax.cssParallaxLayerBase}>
-            Hello
+            Base2
           </e.div>
           <e.div css={parallax.cssParallaxLayerBack}>
-            Hello
+            Slow2
           </e.div>
         </e.div>
-        <e.div css={parallax.cssParallaxGroup}>
+        <e.div bc="pink" css={parallax.cssParallaxGroup}>
           <e.div css={parallax.cssParallaxLayerBase}>
-            Hello
+            Base3
           </e.div>
           <e.div css={parallax.cssParallaxLayerBack}>
-            Hello
+            Slow3
           </e.div>
         </e.div>
       </e.div>
